@@ -1,0 +1,33 @@
+String input;
+int zybo_power = 13;
+int pmod_pin1 = 2;
+int pmod_pin2 = 3;
+int pmod_pin3 = 4;
+int pmod_pin4 = 5;
+int pmod_pin7 = 6;
+int pmod_pin8 = 7;
+int pmod_pin9 = 8;
+int pmod_pin10 = 9;
+
+void setup() {
+  Serial.begin(9600);
+  delay(2000);
+  pinMode(pmod_pin1, OUTPUT);
+  pinMode(pmod_pin2, OUTPUT);
+  pinMode(pmod_pin3, OUTPUT);
+  pinMode(pmod_pin4, OUTPUT);
+  pinMode(pmod_pin7, OUTPUT);
+  pinMode(pmod_pin8, OUTPUT);
+  pinMode(pmod_pin9, OUTPUT);
+  pinMode(pmod_pin10, OUTPUT);
+  pinMode(zybo_power, OUTPUT);
+
+  Serial.println("What to do?");
+}
+void loop() {
+  
+  if (Serial.available()) {
+    //input=Serial.read();
+    input = Serial.readStringUntil('\n');
+  }
+}
