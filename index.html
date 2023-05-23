@@ -64,7 +64,7 @@
       .slider.round:before {
          border-radius: 50%;
       }
-      
+
       .mb-5 {
          margin-bottom: 5px;
       }
@@ -168,65 +168,65 @@
       
       document.getElementById('pmod1').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin1"});
+            socket.emit('toArduino', { "pin":"pin1"});
          } else {
-            socket.emit('lights', { "pin":"pin1_o"});
+            socket.emit('toArduino', { "pin":"pin1_o"});
          }
       };
 
       document.getElementById('pmod2').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin2"});
+            socket.emit('toArduino', { "pin":"pin2"});
          } else {
-            socket.emit('lights', { "pin":"pin2_o"});
+            socket.emit('toArduino', { "pin":"pin2_o"});
          }
       };
 
       document.getElementById('pmod3').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin3"});
+            socket.emit('toArduino', { "pin":"pin3"});
          } else {
-            socket.emit('lights', { "pin":"pin3_o"});
+            socket.emit('toArduino', { "pin":"pin3_o"});
          }
       };
 
       document.getElementById('pmod4').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin4"});
+            socket.emit('toArduino', { "pin":"pin4"});
          } else {
-            socket.emit('lights', { "pin":"pin4_o"});
+            socket.emit('toArduino', { "pin":"pin4_o"});
          }
       };
 
       document.getElementById('pmod7').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin7"});
+            socket.emit('toArduino', { "pin":"pin7"});
          } else {
-            socket.emit('lights', { "pin":"pin7_o"});
+            socket.emit('toArduino', { "pin":"pin7_o"});
          }
       };
 
       document.getElementById('pmod8').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin8"});
+            socket.emit('toArduino', { "pin":"pin8"});
          } else {
-            socket.emit('lights', { "pin":"pin8_o"});
+            socket.emit('toArduino', { "pin":"pin8_o"});
          }
       };
 
       document.getElementById('pmod9').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin9"});
+            socket.emit('toArduino', { "pin":"pin9"});
          } else {
-            socket.emit('lights', { "pin":"pin9_o"});
+            socket.emit('toArduino', { "pin":"pin9_o"});
          }
       };
 
       document.getElementById('pmod10').onchange = function(){
          if (this.checked) {
-            socket.emit('lights', { "pin":"pin10"});
+            socket.emit('toArduino', { "pin":"pin10"});
          } else {
-            socket.emit('lights', { "pin":"pin10_o"});
+            socket.emit('toArduino', { "pin":"pin10_o"});
          }
       };
    </script>

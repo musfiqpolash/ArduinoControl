@@ -23,7 +23,7 @@ app.get("/", (req, res)=>{
 
 
 io.on('connection', (socket) => {
-    socket.on('lights', function (data) {
+    socket.on('toArduino', function (data) {
         console.log(data);
         port.write( data.pin );
     });
