@@ -2,7 +2,7 @@
 <html>
 <head>
    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-   <title>Communicating from Node.js to an Arduino</title>
+   <title>PMOD Control For ZYBO</title>
    <script src="socket.io/socket.io.js"></script>
    <style>
       .switch {
@@ -64,13 +64,17 @@
       .slider.round:before {
          border-radius: 50%;
       }
+      
+      .mb-5 {
+         margin-bottom: 5px;
+      }
    </style>
 </head>
 <body>
    
-   <h1>Communicating from Node.js to an Arduino</h1>
+   <h1>PMOD Control For ZYBO</h1>
    
-   <button id="lightOn">Turn Light On</button>
+   <!-- <button id="lightOn">Turn Light On</button>
    <button id="lightOff">Turn Light Off</button>
    <button onclick="console.log('clicked');">Turn Light Off</button>
    <div>
@@ -79,9 +83,9 @@
          <span class="slider"></span>
       </label>
       <label for="zybo">power on the zybo board</label>
-   </div>
+   </div> -->
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod1" type="checkbox">
          <span class="slider"></span>
@@ -89,7 +93,7 @@
       <label for="pmod1">control pmod1 : V12</label>
    </div>
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod2" type="checkbox">
          <span class="slider"></span>
@@ -97,7 +101,7 @@
       <label for="pmod2">control pmod2 : W16</label>
    </div>
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod3" type="checkbox">
          <span class="slider"></span>
@@ -105,7 +109,7 @@
       <label for="pmod3">control pmod3 : J15</label>
    </div>
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod4" type="checkbox">
          <span class="slider"></span>
@@ -113,7 +117,7 @@
       <label for="pmod4">control pmod4 : H15</label>
    </div>
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod7" type="checkbox">
          <span class="slider"></span>
@@ -121,7 +125,7 @@
       <label for="pmod7">control pmod7 : V13</label>
    </div>
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod8" type="checkbox">
          <span class="slider"></span>
@@ -129,7 +133,7 @@
       <label for="pmod8">control pmod8 : U17</label>
    </div>
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod9" type="checkbox">
          <span class="slider"></span>
@@ -137,7 +141,7 @@
       <label for="pmod9">control pmod9 : T17</label>
    </div>
 
-   <div>
+   <div class="mb-5">
       <label class="switch">
          <input id="pmod10" type="checkbox">
          <span class="slider"></span>
@@ -151,22 +155,78 @@
       socket.on('data',function(data){
          if (data) {
             var rcv = JSON.parse(data)
-            console.log(rcv.data.pin1);
+            console.log(rcv.data);
          }
       });
-      document.getElementById('lightOn').onclick = function() {
-         socket.emit('lights', { "pin":"pin1", "action":"HIGH" });
-      };
+      // document.getElementById('lightOn').onclick = function() {
+      //    socket.emit('lights', { "pin":"pin1", "action":"HIGH" });
+      // };
       
-      document.getElementById('lightOff').onclick = function(){               
-         socket.emit('lights', { "status":"led off" });
-      };
+      // document.getElementById('lightOff').onclick = function(){               
+      //    socket.emit('lights', { "status":"led off" });
+      // };
       
       document.getElementById('pmod1').onchange = function(){
          if (this.checked) {
-            console.log("checked");
+            socket.emit('lights', { "pin":"pin1"});
          } else {
-            console.log("not checked");
+            socket.emit('lights', { "pin":"pin1_o"});
+         }
+      };
+
+      document.getElementById('pmod2').onchange = function(){
+         if (this.checked) {
+            socket.emit('lights', { "pin":"pin2"});
+         } else {
+            socket.emit('lights', { "pin":"pin2_o"});
+         }
+      };
+
+      document.getElementById('pmod3').onchange = function(){
+         if (this.checked) {
+            socket.emit('lights', { "pin":"pin3"});
+         } else {
+            socket.emit('lights', { "pin":"pin3_o"});
+         }
+      };
+
+      document.getElementById('pmod4').onchange = function(){
+         if (this.checked) {
+            socket.emit('lights', { "pin":"pin4"});
+         } else {
+            socket.emit('lights', { "pin":"pin4_o"});
+         }
+      };
+
+      document.getElementById('pmod7').onchange = function(){
+         if (this.checked) {
+            socket.emit('lights', { "pin":"pin7"});
+         } else {
+            socket.emit('lights', { "pin":"pin7_o"});
+         }
+      };
+
+      document.getElementById('pmod8').onchange = function(){
+         if (this.checked) {
+            socket.emit('lights', { "pin":"pin8"});
+         } else {
+            socket.emit('lights', { "pin":"pin8_o"});
+         }
+      };
+
+      document.getElementById('pmod9').onchange = function(){
+         if (this.checked) {
+            socket.emit('lights', { "pin":"pin9"});
+         } else {
+            socket.emit('lights', { "pin":"pin9_o"});
+         }
+      };
+
+      document.getElementById('pmod10').onchange = function(){
+         if (this.checked) {
+            socket.emit('lights', { "pin":"pin10"});
+         } else {
+            socket.emit('lights', { "pin":"pin10_o"});
          }
       };
    </script>

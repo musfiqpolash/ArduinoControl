@@ -24,7 +24,7 @@ app.get("/", (req, res)=>{
 
 io.on('connection', (socket) => {
     socket.on('lights', function (data) {
-        
+        console.log(data);
         port.write( data.pin );
     });
     // socket.emit('lights', {value: brightness});
