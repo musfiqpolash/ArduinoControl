@@ -23,10 +23,11 @@ void setup() {
   pinMode(pmod_pin9, OUTPUT);
   pinMode(pmod_pin10, OUTPUT);
   pinMode(zybo_power, OUTPUT);
-  Serial.println("initialized");
-  // delay(2000);
+  //Serial.println("initialized");
+  delay(1000);
 
-  // jsonData();
+  jsonData();
+  //Serial.println();
 }
 
 void loop() {
@@ -39,8 +40,64 @@ void loop() {
       digitalWrite(pmod_pin1, HIGH);
       jsonData();
     }
-    if (input == "pin7_on") {
+    if (input == "pin1_o") {
+      digitalWrite(pmod_pin1, LOW);
+      jsonData();
+    }
+    if (input == "pin2") {
+      digitalWrite(pmod_pin2, HIGH);
+      jsonData();
+    }
+    if (input == "pin2_o") {
+      digitalWrite(pmod_pin2, LOW);
+      jsonData();
+    }
+    if (input == "pin3") {
+      digitalWrite(pmod_pin3, HIGH);
+      jsonData();
+    }
+    if (input == "pin3_o") {
+      digitalWrite(pmod_pin3, LOW);
+      jsonData();
+    }
+    if (input == "pin4") {
+      digitalWrite(pmod_pin4, HIGH);
+      jsonData();
+    }
+    if (input == "pin4_o") {
+      digitalWrite(pmod_pin4, LOW);
+      jsonData();
+    }
+    if (input == "pin7") {
       digitalWrite(pmod_pin7, HIGH);
+      jsonData();
+    }
+    if (input == "pin7_o") {
+      digitalWrite(pmod_pin7, LOW);
+      jsonData();
+    }
+    if (input == "pin8") {
+      digitalWrite(pmod_pin8, HIGH);
+      jsonData();
+    }
+    if (input == "pin8_o") {
+      digitalWrite(pmod_pin8, LOW);
+      jsonData();
+    }
+    if (input == "pin9") {
+      digitalWrite(pmod_pin9, HIGH);
+      jsonData();
+    }
+    if (input == "pin9_o") {
+      digitalWrite(pmod_pin9, LOW);
+      jsonData();
+    }
+    if (input == "pin10") {
+      digitalWrite(pmod_pin10, HIGH);
+      jsonData();
+    }
+    if (input == "pin10_o") {
+      digitalWrite(pmod_pin10, LOW);
       jsonData();
     }
   }
