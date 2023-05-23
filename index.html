@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-   <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
    <title>Communicating from Node.js to an Arduino</title>
    <script src="socket.io/socket.io.js"></script>
    <style>
@@ -148,16 +148,21 @@
    <script>
       
       var socket = io();
-      
+      socket.on('data',function(data){
+         if (data) {
+            var rcv = JSON.parse(data)
+            console.log(rcv.data.pin1);
+         }
+      });
       document.getElementById('lightOn').onclick = function() {
-         socket.emit('lights', { "status":"led on" });
+         socket.emit('lights', { "pin":"pin1", "action":"HIGH" });
       };
       
       document.getElementById('lightOff').onclick = function(){               
          socket.emit('lights', { "status":"led off" });
       };
       
-      document.getElementById('chk').onchange = function(){
+      document.getElementById('pmod1').onchange = function(){
          if (this.checked) {
             console.log("checked");
          } else {
