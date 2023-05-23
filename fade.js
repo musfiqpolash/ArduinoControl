@@ -22,14 +22,10 @@ app.get("/", (req, res)=>{
 });
 
 
-console.log("Web Server Started go to `http://localhost:8080` in your Browser.");
-
 io.on('connection', (socket) => {
     socket.on('lights', function (data) {
         
-        console.log( data );
-        
-        port.write( data.status );
+        port.write( data.pin );
     });
     // socket.emit('lights', {value: brightness});
     // socket.on('data', function(data) {
@@ -39,7 +35,14 @@ io.on('connection', (socket) => {
           
     //   });
 });
-parser.on('data', console.log);
+// parser.on('data', console.log);
+
+parser.on('data', function(data){
+    console.log("received from arduino "+data);
+    io.emit('data',data);
+});
+
+console.log("Web Server Started go to `http://localhost:8080` in your  Browser.");
 
 server.listen(8080,()=>{
     console.log("listening on *.8080");
