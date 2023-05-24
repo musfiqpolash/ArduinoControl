@@ -10,7 +10,7 @@
 
 const { autoDetect } = require('@serialport/bindings-cpp');
 const Binding = autoDetect();
-Binding.list().then(ports=>{
-    const port = ports.find(port => /arduino/i.test(port.manufacturer))
-    console.log(port.path);
+Binding.list().then(ports => {
+    // const port = ports.find(port => /arduino/i.test(port.manufacturer))
+    console.log(ports);
 });
