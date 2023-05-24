@@ -100,6 +100,17 @@ void loop() {
       digitalWrite(pmod_pin10, LOW);
       jsonData();
     }
+    if (input == "jsonData"){
+      jsonData();
+    }
+    if (input == "zybo_power"){
+      digitalWrite(zybo_power, HIGH);
+      jsonData();
+    }
+    if (input == "zybo_power_o"){
+      digitalWrite(zybo_power, LOW);
+      jsonData();
+    }
   }
   //delay(5000);
 }
