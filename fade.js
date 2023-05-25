@@ -6,9 +6,27 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+var opsys = process.platform;
+var device_path='/dev/ttyArduino';
+
+// const { autoDetect } = require('@serialport/bindings-cpp');
+// const Binding = autoDetect();
+
+// Binding.list().then(ports => {
+//     if (opsys == "win32" || opsys == "win64") {
+//         const port = ports.find(port => /2341/i.test(port.vendorId));
+//         if (port) device_path=port.path;
+//     } else if (opsys == "linux") {
+//         const port = ports.find(port => /8086/i.test(port.vendorId));
+//         if (port) device_path=port.path;
+//     }
+//     // const port = ports.find(port => /8086/i.test(port.vendorId));
+//     //console.log(device_path);
+// });
+
 const { SerialPort, ReadlineParser } = require('serialport');
 const port = new SerialPort({
-    path:'/dev/ttyACM0',
+    path: device_path,
     baudRate: 9600,
     dataBits: 8,
     parity: 'none',
